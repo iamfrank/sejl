@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 2rem;
+  font: 100%/1.3 sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+sejl-question {
+  position: relative;
+}
+
+sejl-question img {
+  width: 100%;
+  height: auto;
+}
+
+sejl-question .input-answer {
+  display: block;
+  padding: 1rem;
+}
+
+sejl-question .input-answer input {
+  margin-right: 0.5rem;
+}
+
+sejl-question sejl-right-or-wrong {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: black;
+}
+
+sejl-right-or-wrong[verdict="right"] h3 {
+  background-color: green;
+}
+
+sejl-right-or-wrong[verdict="wrong"] h3 {
+  background-color: red;
+}
