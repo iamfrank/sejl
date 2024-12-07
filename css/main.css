@@ -46,12 +46,13 @@ sejl-question sejl-right-or-wrong {
   right: 0;
   padding: 1rem;
   background-color: black;
+  text-align: center;
 }
 
-sejl-right-or-wrong[verdict="right"] h3 {
+sejl-right-or-wrong[verdict="right"] {
   background-color: green;
 }
 
-sejl-right-or-wrong[verdict="wrong"] h3 {
+sejl-right-or-wrong[verdict="wrong"] {
   background-color: red;
 }

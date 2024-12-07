@@ -19,13 +19,10 @@ export class Question extends HTMLElement {
   render(question) {
     this.innerHTML = `
       <h2>${ question.question }</h2>
-
       <img src="./img/${ question.image }" alt="">
-
       <form>
         ${ this.renderAnswers(question.correctAnswer, question.wrongAnswers) }
       </form>
-
       <sejl-right-or-wrong hidden answer="${ answers[question.correctAnswer] }"></sejl-right-or-wrong>
     `
     this.querySelector('form').addEventListener('change', this.submitAnswerHandler.bind(this))
@@ -66,18 +63,12 @@ export class Question extends HTMLElement {
   }
 
   shuffleArray(array) {
-    // Create a copy of the array to avoid mutating the original array
     let shuffledArray = array.slice();
-
     for (let i = shuffledArray.length - 1; i > 0; i--) {
-        // Generate a random index between 0 and i (inclusive)
-        const j = Math.floor(Math.random() * (i + 1));
-
-        // Swap elements at indices i and j
-        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
     }
-
-    return shuffledArray;
+    return shuffledArray
   }
 
 }

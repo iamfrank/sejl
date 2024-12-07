@@ -17,7 +17,7 @@ export class RightOrWrong extends HTMLElement {
     this.innerHTML = `
       <h3>${ this.translateVerdict(this.getAttribute('verdict')) }</h3>
       <p>${ this.getAttribute('answer') }</p>
-      <button>Luk</button>
+      <button>Videre</button>
     `
     this.querySelector('button').addEventListener('click', () => {
       this.setAttribute('hidden', true)
