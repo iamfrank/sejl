@@ -2,6 +2,5 @@
   <g>
     <circle cx="70" cy="40" r="5" fill="red" />
     <circle cx="30" cy="40" r="5" fill="green" />
-    <circle cx="50" cy="20" r="5" fill="white" />
   </g>
 </svg>

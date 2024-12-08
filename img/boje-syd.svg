@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 100 60">
+  <g>
+    <rect x="45" y="10" width="10" height="50" fill="black" />
+    <circle cx="50" cy="10" r="3" fill="black">
+      <animate 
+        attributeName="fill"
+        begin="0s"
+        dur="15s"
+        values="  black;white;black;white;black;white;black;white;black;white;black;white;black;white;white;black;black"
+        keyTimes="0;    0.025; 0.05;0.075;  0.1;0.125; 0.15;0.175;  0.2;0.225; 0.25;0.275;  0.3;0.325;  0.5;  0.6;    1"
+        repeatCount="indefinite" />
+    </circle>
+    <rect x="45" y="30" width="10" height="5" fill="yellow" />
+    <rect x="45" y="40" width="10" height="10" fill="blue" />
+  </g>
+</svg>

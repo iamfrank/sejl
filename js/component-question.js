@@ -1,4 +1,3 @@
-import { answers } from "./data-answers.js"
 import { questions } from "./data-questions.js"
 
 export class Question extends HTMLElement {
@@ -18,39 +17,37 @@ export class Question extends HTMLElement {
 
   render(question) {
     this.innerHTML = `
-      <h2>${ question.question }</h2>
-      <img src="./img/${ question.image }" alt="">
-      <form>
-        ${ this.renderAnswers(question.correctAnswer, question.wrongAnswers) }
-      </form>
-      <sejl-right-or-wrong hidden answer="${ answers[question.correctAnswer] }"></sejl-right-or-wrong>
+      <article>
+        <h2>${ question.question }</h2>
+        <img src="./img/${ question.image }" alt="">
+        <form>
+          ${ this.renderAnswers(question.answer) }
+        </form>
+        <sejl-right-or-wrong hidden answer="${ question.answer }"></sejl-right-or-wrong>
+      </article>
     `
     this.querySelector('form').addEventListener('change', this.submitAnswerHandler.bind(this))
   }
 
-  renderAnswers(correctAnswer, wrongAnswers) {
-
-    let wrongList = Array.from(wrongAnswers)
-    const localAnswers = [answers[correctAnswer], undefined, undefined]
-    const wrongAnswerPick1 = Math.floor(Math.random() * wrongAnswers.length)
-    localAnswers[1] = answers[wrongAnswers[wrongAnswerPick1]]
-    wrongList = wrongList.splice(wrongAnswerPick1, 1)
-    const wrongAnswerPick2 = Math.floor(Math.random() * wrongAnswers.length)
-    localAnswers[2] = answers[wrongAnswers[wrongAnswerPick2]]
-    console.log(localAnswers)
-
-    const shuffledAnswers = this.shuffleArray(localAnswers)
+  renderAnswers(answer) {
+    
+    const correctAnswerIndex = this.getRandom(3)
     let template = ''
-    for (const answer of shuffledAnswers) {
-      template += `<label class="input-answer"><input type="radio" name="answer" value="${ answer }">${ answer }</label>`
+    for (let i = 0; i < 3; i++) {
+      let localAnswer = ''
+      if (i === correctAnswerIndex) {
+        localAnswer = answer
+      } else {
+        localAnswer = questions[this.getRandom(questions.length)].answer
+      }
+      template += `<label class="input-answer"><input type="radio" name="answer" value="${ localAnswer }">${ localAnswer }</label>`
     }
-
     return template
   }
 
   submitAnswerHandler(event) {
     const rightOrWrongElement = this.querySelector('sejl-right-or-wrong')
-    const rightAnswer = answers[this.getAttribute('question-id')]
+    const rightAnswer = questions[this.getAttribute('question-id')].answer
     if (event.target.value === rightAnswer) {
       console.log('correct')
       rightOrWrongElement.setAttribute('verdict', 'right')
@@ -60,6 +57,10 @@ export class Question extends HTMLElement {
       rightOrWrongElement.setAttribute('verdict', 'wrong')
       rightOrWrongElement.hidden = false
     }
+  }
+
+  getRandom(max) {
+    return Math.floor(Math.random() * max)
   }
 
   shuffleArray(array) {
