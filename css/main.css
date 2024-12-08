@@ -72,6 +72,7 @@ sejl-question {
 sejl-question img {
   width: 100%;
   height: auto;
+  max-width: 20rem;
   margin: 2rem 0;
 }
 

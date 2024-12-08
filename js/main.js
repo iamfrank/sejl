@@ -29,7 +29,7 @@ customElements.define('sejl-outro', Outro)
 const questionElement = document.querySelector('sejl-question')
 const pointTrackElement = document.querySelector('sejl-point-track')
 const outroElement = document.querySelector('sejl-outro')
-questionElement.setAttribute('question-id', 12)
+questionElement.setAttribute('question-id', 22)
 //questionElement.setAttribute('question-id', getRandomQuestionId())
 
 document.addEventListener('next', (event) => {
