@@ -13,7 +13,7 @@ html {
 
 body {
   text-align: center;
-  background: linear-gradient(to top, #001 0%, #000 50%, #002 50%, #001 100%);
+  background: linear-gradient(to top, #001, #000);
   color: white;
   margin: 0;
   padding: 2rem;
