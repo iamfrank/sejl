@@ -73,7 +73,7 @@ sejl-question img {
   width: 100%;
   height: auto;
   max-width: 20rem;
-  margin: 2rem 0;
+  margin: 4rem 0;
 }
 
 sejl-question .input-answer {
@@ -116,9 +116,8 @@ sejl-point-track {
 sejl-point-track .notch-right,
 sejl-point-track .notch-wrong {
   display: inline-block;
-  width: 1rem;
+  width: 0.25rem;
   height: 1rem;
-  border-radius: 50%;
   background-color: green;
   margin: 0 0.125rem;
 }
